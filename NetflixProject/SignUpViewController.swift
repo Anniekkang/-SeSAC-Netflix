@@ -92,12 +92,12 @@ class SignUpViewController: UIViewController {
     
     @IBAction func signupButtonTapped(_ sender: UIButton) {
         if emailTextField.text == "" || passwordTextField.text == "" {
-            let alert = UIAlertController(title: "경고", message: "아이디와 패스워드를 다시 입력하십시오", preferredStyle: .alert)
+            let alert = UIAlertController(title: "경고", message: "아이디와 패스워드를 다시 입력하시오", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "되돌아가기", style: .destructive, handler: { _ in print("클릭함") }))
             present(alert, animated: true)
             
         } else if passwordTextField.accessibilityElementCount() < 6 {
-            let alert = UIAlertController(title: "경고", message: "패스워드를 6자리 이상 입력하십시오", preferredStyle: .alert)
+            let alert = UIAlertController(title: "경고", message: "패스워드를 6자리 이상 입력하시오", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "되돌아가기", style: .destructive, handler: { _ in print("클릭함") }))
             present(alert, animated: true)
         }
