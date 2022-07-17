@@ -32,32 +32,25 @@ class SignUpViewController: UIViewController {
         mainLabel.font = UIFont.systemFont(ofSize: 30, weight: .heavy)
         
         emailTextField.attributedPlaceholder = NSAttributedString(string: "이메일 주소 또는 전화번호", attributes: [NSAttributedString.Key.foregroundColor : UIColor.white])
-        emailTextField.backgroundColor = UIColor.gray
         emailTextField.keyboardType = .namePhonePad
-        emailTextField.textAlignment = .center
+        setup(emailTextField)
         
         passwordTextField.attributedPlaceholder = NSAttributedString(string: "비밀번호", attributes: [NSAttributedString.Key.foregroundColor : UIColor.white])
-        passwordTextField.backgroundColor = UIColor.gray
-        passwordTextField.textAlignment = .center
         passwordTextField.keyboardType = .numberPad
-        
+        setup(passwordTextField)
         
         nicknameTextField.attributedPlaceholder = NSAttributedString(string: "닉네임", attributes: [NSAttributedString.Key.foregroundColor : UIColor.white])
-        nicknameTextField.backgroundColor = UIColor.gray
-        nicknameTextField.textAlignment = .center
         nicknameTextField.keyboardType = .namePhonePad
-        
+        setup(nicknameTextField)
         
         locationTextField.attributedPlaceholder = NSAttributedString(string: "위치", attributes: [NSAttributedString.Key.foregroundColor : UIColor.white])
-        locationTextField.backgroundColor = UIColor.gray
-        locationTextField.textAlignment = .center
         locationTextField.keyboardType = .namePhonePad
+        setup(locationTextField)
         
         codeTextField.attributedPlaceholder = NSAttributedString(string: "추천 코드 입력", attributes: [NSAttributedString.Key.foregroundColor : UIColor.white])
         codeTextField.backgroundColor = UIColor.gray
-        codeTextField.textColor = UIColor.white
-        codeTextField.textAlignment = .center
         codeTextField.keyboardType = .numberPad
+        setup(codeTextField)
         
         signupButton.backgroundColor = .white
         signupButton.setTitleColor(.black, for: .normal)
@@ -75,35 +68,45 @@ class SignUpViewController: UIViewController {
 
         }
     
+    func setup(_ field: UITextField){
+        
+        field.backgroundColor = UIColor.gray
+        field.textAlignment = .center
+        
+    }
+    
+    //가입을 위한 조건
     func condition() -> Bool {
     
         if emailTextField.text == "" || passwordTextField.text == "" {
-            let alert = UIAlertController(title: "경고", message: "아이디와 패스워드를 다시 입력하시오", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "되돌아가기", style: .destructive, handler: { _ in print("클릭함") }))
-            present(alert, animated: true)
-            return false
+           alert(title: "경고", message: "이메일주소와 패스워드를 기입하시오")
+            
+        }else if !emailTextField.text!.contains("@"){
+            
+            alert(title: "경고", message: "이메일 형식이 잘 못 되었습니다")
           
             
         } else if passwordTextField.text!.count < 6 {
-            let alert = UIAlertController(title: "경고", message: "패스워드를 6자리 이상 입력하시오", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "되돌아가기", style: .destructive, handler: { _ in print("클릭함") }))
-            present(alert, animated: true)
-            return false
+            alert(title: "경고", message: "비밀번호를 6자리 이상 기입하시오")
             
         } else if  nicknameTextField.text == "" || locationTextField.text == "" {
             
-            let alert = UIAlertController(title: "경고", message: "빈칸을 모두 입력하시오", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "되돌아가기", style: .destructive, handler: { _ in
-                print("클릭함")
-            }))
-            return false
+            alert(title: "경고", message: "빈칸을 모두 입력하시오")
         }
         return true
     }
     
     
+    //조건에 불충족 했을 시 나오는 alert
+    func alert(title : String, message : String) -> Bool {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "되돌아가기", style: .destructive, handler: { _ in print("클릭함") }))
+        present(alert, animated: true)
+        return false
+    }
     
 
+    
     @IBAction func tapGestureClicked(_ sender: UIButton) {
         view.endEditing(true)
     }
@@ -114,24 +117,13 @@ class SignUpViewController: UIViewController {
     }
     
     
-    
+    //버튼을 눌렀을 때의 action
     @IBAction func signupButtonTapped(_ sender: UIButton) {
         if(condition() == true) {
         self.performSegue(withIdentifier: "seguefromAtoB", sender: self)
         }
-        //이메일 형식에 맞춰 써야함
-        //비밀번호 암호로 나오기
-        //비밀번호 길이 맞추기
-        // 닉네임, 위치 빈칸이면 안됨
-        // 추천코드 숫자로만 입력해야함
-        //되돌아 가기 버튼 나오면 넘어가지 않음
-       
-      
-
     }
-    
-    
-    
+ 
 }
 
 
