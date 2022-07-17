@@ -73,11 +73,36 @@ class SignUpViewController: UIViewController {
         mainSwitch.setOn(false, animated: true)
         
 
-        
+        }
+    
+    func condition() -> Bool {
+    
+        if emailTextField.text == "" || passwordTextField.text == "" {
+            let alert = UIAlertController(title: "경고", message: "아이디와 패스워드를 다시 입력하시오", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "되돌아가기", style: .destructive, handler: { _ in print("클릭함") }))
+            present(alert, animated: true)
+            return false
+          
+            
+        } else if passwordTextField.text!.count < 6 {
+            let alert = UIAlertController(title: "경고", message: "패스워드를 6자리 이상 입력하시오", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "되돌아가기", style: .destructive, handler: { _ in print("클릭함") }))
+            present(alert, animated: true)
+            return false
+            
+        } else if  nicknameTextField.text == "" || locationTextField.text == "" {
+            
+            let alert = UIAlertController(title: "경고", message: "빈칸을 모두 입력하시오", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "되돌아가기", style: .destructive, handler: { _ in
+                print("클릭함")
+            }))
+            return false
+        }
+        return true
     }
     
     
-   
+    
 
     @IBAction func tapGestureClicked(_ sender: UIButton) {
         view.endEditing(true)
@@ -91,22 +116,24 @@ class SignUpViewController: UIViewController {
     
     
     @IBAction func signupButtonTapped(_ sender: UIButton) {
-        if emailTextField.text == "" || passwordTextField.text == "" {
-            let alert = UIAlertController(title: "경고", message: "아이디와 패스워드를 다시 입력하시오", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "되돌아가기", style: .destructive, handler: { _ in print("클릭함") }))
-            present(alert, animated: true)
-            
-        } else if passwordTextField.accessibilityElementCount() < 6 {
-            let alert = UIAlertController(title: "경고", message: "패스워드를 6자리 이상 입력하시오", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "되돌아가기", style: .destructive, handler: { _ in print("클릭함") }))
-            present(alert, animated: true)
+        if(condition() == true) {
+        self.performSegue(withIdentifier: "seguefromAtoB", sender: self)
         }
-        
-        
-        
-        
+        //이메일 형식에 맞춰 써야함
+        //비밀번호 암호로 나오기
+        //비밀번호 길이 맞추기
+        // 닉네임, 위치 빈칸이면 안됨
+        // 추천코드 숫자로만 입력해야함
+        //되돌아 가기 버튼 나오면 넘어가지 않음
+       
+      
+
     }
     
     
     
 }
+
+
+
+

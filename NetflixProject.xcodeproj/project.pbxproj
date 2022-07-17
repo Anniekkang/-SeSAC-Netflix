@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		9E50719B28755163008483F5 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E50719A28755163008483F5 /* SignUpViewController.swift */; };
+		9E73960E2883E1D1003FB403 /* confirmedSignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E73960D2883E1D1003FB403 /* confirmedSignUpViewController.swift */; };
+		9E94E5812883F182000BD89E /* seguefromAtoBViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E94E5802883F182000BD89E /* seguefromAtoBViewController.swift */; };
 		9EF4C21D2872A6640009A30D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EF4C21C2872A6640009A30D /* AppDelegate.swift */; };
 		9EF4C21F2872A6640009A30D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EF4C21E2872A6640009A30D /* SceneDelegate.swift */; };
 		9EF4C2212872A6640009A30D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EF4C2202872A6640009A30D /* ViewController.swift */; };
@@ -18,6 +20,8 @@
 
 /* Begin PBXFileReference section */
 		9E50719A28755163008483F5 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		9E73960D2883E1D1003FB403 /* confirmedSignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = confirmedSignUpViewController.swift; sourceTree = "<group>"; };
+		9E94E5802883F182000BD89E /* seguefromAtoBViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = seguefromAtoBViewController.swift; sourceTree = "<group>"; };
 		9EF4C2192872A6640009A30D /* NetflixProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NetflixProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9EF4C21C2872A6640009A30D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9EF4C21E2872A6640009A30D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -63,6 +67,8 @@
 				9EF4C21E2872A6640009A30D /* SceneDelegate.swift */,
 				9EF4C2202872A6640009A30D /* ViewController.swift */,
 				9EF4C2222872A6640009A30D /* Main.storyboard */,
+				9E94E5802883F182000BD89E /* seguefromAtoBViewController.swift */,
+				9E73960D2883E1D1003FB403 /* confirmedSignUpViewController.swift */,
 				9EF4C2252872A6670009A30D /* Assets.xcassets */,
 				9EF4C2272872A6670009A30D /* LaunchScreen.storyboard */,
 				9EF4C22A2872A6670009A30D /* Info.plist */,
@@ -141,7 +147,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9E73960E2883E1D1003FB403 /* confirmedSignUpViewController.swift in Sources */,
 				9EF4C2212872A6640009A30D /* ViewController.swift in Sources */,
+				9E94E5812883F182000BD89E /* seguefromAtoBViewController.swift in Sources */,
 				9EF4C21D2872A6640009A30D /* AppDelegate.swift in Sources */,
 				9E50719B28755163008483F5 /* SignUpViewController.swift in Sources */,
 				9EF4C21F2872A6640009A30D /* SceneDelegate.swift in Sources */,
